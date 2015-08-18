@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="http://www.jooq.org/xsd/jooq-codegen-3.6.0.xsd">
+   <!-- Configure the database connection here -->
+   <jdbc>
+      <driver>com.mysql.jdbc.Driver</driver>
+      <url>jdbc:mysql://localhost:3306/sakila</url>
+      <user>root</user>
+      <password></password>
+   </jdbc>
+
+   <generator>
+      <name>org.jooq.util.DefaultGenerator</name>
+
+      <strategy>
+         <name>example.jooq.CamelCaseStrategy</name>
+      </strategy>
+
+      <database>
+         <name>org.jooq.util.mysql.MySQLDatabase</name>
+         <inputSchema>sakila</inputSchema>
+         <includes>.*</includes>
+
+         <customTypes>
+            <customType>
+               <name>CString</name>
+               <type>ceylon.language.String</type>
+               <converter>example.jooqconverters.StringConverter</converter>
+            </customType>
+         </customTypes>
+   
+         <forcedTypes>
+            <forcedType>
+               <name>CString</name>
+               <types>varchar</types>
+            </forcedType>
+         </forcedTypes>
+      </database>
+
+      <target>
+         <packageName>gen.example.jooq</packageName>
+         <directory>./gen-source</directory>
+      </target>
+
+      <generate>
+         <pojos>false</pojos>
+         <daos>false</daos>
+      </generate>
+   </generator>
+</configuration>

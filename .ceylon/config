@@ -1,0 +1,12 @@
+
+[compiler]
+source=source
+resource=resource
+source=src
+source=gen-source
+
+[defaults]
+encoding=UTF-8
+
+[repositories]
+remote=aether:/Users/bastien/.m2/settings.xml

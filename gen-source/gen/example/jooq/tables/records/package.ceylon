@@ -1,0 +1,1 @@
+shared package gen.example.jooq.tables.records;
