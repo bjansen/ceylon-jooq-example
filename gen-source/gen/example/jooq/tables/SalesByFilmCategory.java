@@ -6,7 +6,7 @@ package gen.example.jooq.tables;
 
 import ceylon.language.String;
 
-import example.jooqconverters.StringConverter;
+import com.github.bjansen.ceylon.jooqadapter.StringConverter;
 
 import gen.example.jooq.Sakila;
 import gen.example.jooq.tables.records.SalesByFilmCategoryRecord;

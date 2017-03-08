@@ -12,7 +12,7 @@
       <name>org.jooq.util.DefaultGenerator</name>
 
       <strategy>
-         <name>example.jooq.CamelCaseStrategy</name>
+         <name>com.github.bjansen.ceylon.jooqadapter.CeylonNamingStrategy</name>
       </strategy>
 
       <database>
@@ -24,10 +24,10 @@
             <customType>
                <name>CString</name>
                <type>ceylon.language.String</type>
-               <converter>example.jooqconverters.StringConverter</converter>
+               <converter>com.github.bjansen.ceylon.jooqadapter.StringConverter</converter>
             </customType>
          </customTypes>
-   
+
          <forcedTypes>
             <forcedType>
                <name>CString</name>
