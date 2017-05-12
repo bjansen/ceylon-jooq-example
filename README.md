@@ -1,7 +1,9 @@
 # Ceylon + jOOQ example
 
 This sample project shows how you can use jOOQ in your Ceylon 
-project.
+project. It illustrates a [blog article][] I wrote.
+
+[blog article]: https://bjansen.github.io/ceylon/2015/08/24/ceylon-plus-jooq-equals-heart.html
 
 ## Requirements
 
@@ -19,10 +21,17 @@ representing all the tables. The model was generated into
 the Ceylon module `gen.example.jooq` in the `gen-source`
 directory.
 
+The [blog article][blog gen] shows a sample configuration that can be
+used to regenerate the model. Don't forget to add 
+`jooq-3.9.1.jar`, `jooq-meta-3.9.1.jar`, `jooq-codegen-3.9.1.jar`
+and a MySQL JDBC driver to the classpath when invoking 
+`org.jooq.util.GenerationTool`.
+
 The actual demo module `example.jooq` is located in the
 directory `source/`. It uses jOOQ's generated classes to 
 query the `sakila` database, then prints the result.
 
+[blog gen]: http://bjansen.github.io/ceylon/2015/08/24/ceylon-plus-jooq-equals-heart.html#generating-classes
 [code generator]: https://www.jooq.org/doc/3.9/manual/code-generation/codegen-configuration/
 
 ## Building and running
