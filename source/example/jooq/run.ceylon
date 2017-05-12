@@ -25,10 +25,8 @@ import org.jooq {
 }
 import org.jooq.impl {
     DSL {
-        concat,
         currentTimestamp,
-        timestampAdd,
-        val
+        timestampAdd
     }
 }
 
@@ -43,12 +41,15 @@ shared void run() {
         print("Actor ``actor.firstName`` ``actor.lastName``");
     }
 
-    value overdueRentals = dsl.select(
-        concat(customer.lastName,
-            val(" "),
-            customer.firstName).as("customer"),
-        address.phone, film.title
-    )
+    value overdueRentals
+        = dsl.select(
+            concat(customer.lastName,
+                   string(" "),
+                   customer.firstName)
+                .as("customer"),
+            address.phone,
+            film.title
+        )
         .from(rental)
         .join(customer).on(rental.customerId.eq(customer.customerId))
         .join(address).on(customer.addressId.eq(address.addressId))
