@@ -30,11 +30,9 @@ import org.jooq.impl {
     }
 }
 
-"Run the module `example.jooq`."
 shared void run() {
-    dataSource.setup();
 
-    value dsl = DSL.using(dataSource, SQLDialect.mysql);
+    value dsl = DSL.using(createDataSource(), SQLDialect.mysql);
     value actors = dsl.selectFrom(actor).limit(5).fetch();
 
     for (actor in actors) {

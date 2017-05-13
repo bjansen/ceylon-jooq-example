@@ -1,18 +1,37 @@
-import com.zaxxer.hikari {
-    HikariDataSource
+import com.mysql.cj.core.conf {
+    PropertyDefinitions {
+        serverTimezone=PNAME_serverTimezone
+    }
 }
-import com.mysql.jdbc.jdbc2.optional {
+import com.mysql.cj.jdbc {
     MysqlDataSource
 }
+import com.zaxxer.hikari {
+    HikariDataSource,
+    HikariConfig
+}
 
-object dataSource extends HikariDataSource() {
-    
-    shared void setup() {
-        value mysqlDS = MysqlDataSource();
-        mysqlDS.databaseName = "sakila";
-        mysqlDS.user = "root";
-        mysqlDS.setPassword("");
-        
-        dataSource = mysqlDS;
-    }
+import java.lang {
+    JString=String
+}
+
+import javax.sql {
+    DataSource
+}
+
+DataSource createDataSource() {
+
+    //connection properties for MySQL
+    value mysql = MysqlDataSource();
+    mysql.databaseName = "sakila";
+    mysql.user = "root";
+    mysql.setPassword("");
+
+    //work around a really lame bug in MySQL driver
+    mysql.getModifiableProperty<JString>(serverTimezone)
+         .setValue(JString("Australia/Sydney"));
+
+    value config = HikariConfig();
+    config.dataSource = mysql;
+    return HikariDataSource(config);
 }
