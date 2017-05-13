@@ -73,3 +73,14 @@ Then run it using:
 
     java -jar example.jooq-1.0.0.jar
 
+## Building and running a Ceylon assembly
+
+To create a Ceylon assembly with the example module and its 
+dependencies, type:
+
+    ceylon assemble example.jooq
+
+Then run it using:
+
+    ceylon run --flat-classpath --assembly=example.jooq-1.0.0.cas
+
