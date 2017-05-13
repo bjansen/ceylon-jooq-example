@@ -10,6 +10,3 @@ offline=false
 flatclasspath=false
 autoexportmavendependencies=false
 fullyexportmavendependencies=false
-
-[repositories]
-remote=aether:/Users/bastien/.m2/settings.xml
