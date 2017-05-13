@@ -7,11 +7,20 @@ project. It illustrates a [blog article][] I wrote.
 
 ## Requirements
 
-- [Ceylon 1.3.2][] and Java 8.
+To compile and run the sample project, you'll need:
+
+- [Ceylon 1.3.2][] and Java 8, and
 - [MySQL][] database.
+
+To develop the sample project in an IDE, install Ceylon IDE
+for [IntelliJ][] or [Eclipse][]. 
 
 [Ceylon 1.3.2]: https://ceylon-lang.org/download/
 [MySQL]: https://dev.mysql.com/downloads/
+
+[IntelliJ]: https://ceylon-lang.org/documentation/1.3/ide/intellij/
+[Eclipse]: https://ceylon-lang.org/documentation/1.3/ide/eclipse/
+
 
 ## Project structure
 
@@ -63,4 +72,15 @@ module and its dependencies, type:
 Then run it using:
 
     java -jar example.jooq-1.0.0.jar
+
+## Building and running a Ceylon assembly
+
+To create a Ceylon assembly with the example module and its 
+dependencies, type:
+
+    ceylon assemble example.jooq
+
+Then run it using:
+
+    ceylon run --flat-classpath --assembly=example.jooq-1.0.0.cas
 
